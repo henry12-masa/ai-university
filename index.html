@@ -4,17 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AI大学受験クイズ</title>
-<meta name="description" content="慶應・早稲田・東大・京大・共通テストレベルの大学受験対策クイズ。JSデータを読み込み、50問ランダム出題、復習、苦手分析、学部別対策に対応。">
+<meta name="description" content="共通テスト・東大・京大・慶應・早稲田・MARCH・関関同立レベルの大学受験対策クイズ。各カテゴリ200問から50問ランダム出題。">
 <link rel="stylesheet" href="style.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8398161859137802" crossorigin="anonymous"></script>
 </head>
 <body>
 <header>
   <h1 id="pageTitle">AI大学受験クイズ</h1>
-  <p id="pageDesc">大学・レベル・学部別に50問ランダム出題。間違えた問題だけ復習、苦手分析にも対応。</p>
+  <p id="pageDesc">各カテゴリ200問から50問ランダム出題。間違えた問題だけ復習・苦手分析つき。</p>
 </header>
 
-<nav id="quizList"></nav>
+<nav class="top-actions">
+  <a href="index.html" id="homeLink">トップ</a>
+  <button id="reviewBtn" type="button">間違えた問題だけ復習</button>
+  <button id="clearHistoryBtn" type="button">学習履歴リセット</button>
+</nav>
+
+<section id="categoryArea" class="category-area"></section>
 
 <main class="layout">
   <aside class="ad-box left-ad">
@@ -24,28 +30,18 @@
   </aside>
 
   <section class="quiz-box">
-    <div class="toolbar">
-      <label>学部別対策
-        <select id="facultySelect">
-          <option value="all">全学部ミックス</option>
-        </select>
-      </label>
-      <button id="reviewBtn" type="button">間違えた問題だけ復習</button>
-      <button id="resetBtn" type="button">成績リセット</button>
-    </div>
-
-    <div id="analysisBox" class="analysis-box"></div>
-
     <div class="status">
-      <span id="counter"></span>
-      <span id="score"></span>
+      <span id="counter">0 / 0</span>
+      <span id="score">スコア: 0</span>
     </div>
     <div class="progress"><div id="progressBar"></div></div>
-    <p id="meta"></p>
-    <h2 id="question"></h2>
+    <div id="modeLabel" class="mode-label"></div>
+    <h2 id="question">カテゴリを選んでください</h2>
+    <div id="meta"></div>
     <div id="choices"></div>
     <p id="result"></p>
-    <button id="nextBtn">次の問題</button>
+    <button id="nextBtn" type="button">次の問題</button>
+    <section id="analysisBox" class="analysis-box"></section>
   </section>
 
   <aside class="ad-box right-ad">
@@ -55,11 +51,7 @@
   </aside>
 </main>
 
-<script src="data/university/keio.js"></script>
-<script src="data/university/waseda.js"></script>
-<script src="data/university/todai.js"></script>
-<script src="data/university/kyodai.js"></script>
-<script src="data/university/common-test.js"></script>
+<script src="data/university-data.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
